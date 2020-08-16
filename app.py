@@ -13,10 +13,6 @@ app.secret_key = 'penny'
 api = Api(app)
 jwt = JWT(app, autenticate, identify)
 
-@app.before_first_request
-def createTables():
-    db.create_all()
-
 api.add_resource(Store, '/store/<string:name>')
 api.add_resource(Stores, '/stores')
 api.add_resource(Item, '/item/<string:name>')
